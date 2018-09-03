@@ -41,7 +41,7 @@ build_script:
         
         7z a mir2-mapeditor_1_0_{build}.zip C:\projects\mir2-mapeditor
         
-        tree C:\projects\mir2-mapeditor
+        tree C:\
       }
   # Package
   - ps: >-
