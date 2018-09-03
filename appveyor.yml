@@ -38,6 +38,10 @@ build_script:
         msbuild /p:Configuration=$env:configuration
         
         tree
+        
+        cd ..\..\Client
+        
+        tree
       }
   # Package
   - ps: >-
