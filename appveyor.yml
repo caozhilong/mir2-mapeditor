@@ -37,11 +37,11 @@ build_script:
       elseif($env:build_system -eq "msbuild") {
         msbuild /p:Configuration=$env:configuration
         
-        tree
+        tree C:\projects\mir2-mapeditor
         
         7z a mir2-mapeditor_1_0_{build}.zip C:\projects\mir2-mapeditor
         
-        tree
+        tree C:\projects\mir2-mapeditor
       }
   # Package
   - ps: >-
