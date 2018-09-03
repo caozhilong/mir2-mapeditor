@@ -1,0 +1,42 @@
+version: 1.0.{build}
+clone_depth: 25
+clone_folder: C:\projects\mir2-mapeditor
+
+image: Visual Studio 2015
+
+environment:
+  CTEST_OUTPUT_ON_FAILURE: TRUE
+  graphviz_install_dir: C:\mir2-mapeditor
+  matrix:
+    - build_system: msbuild
+
+configuration:
+  - Debug
+  - Release
+  
+install:
+  # Retrieve submodules, dependencies are stored there.
+  - git submodule update --init
+
+before_build:
+- del "C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets"
+
+build:
+  verbosity: minimal
+
+build_script:
+  # Package
+  - ps: >-
+      if($env:configuration -eq "Release") {
+        if($env:build_system -eq "cmake") {
+          cpack
+        }
+        elseif($env:build_system -eq "msbuild") {
+          rm Release\mir2-mapeditor\bin\*.lastcodeanalysissucceeded;
+          rm Release\mir2-mapeditor\bin\*.iobj;
+          rm Release\mir2-mapeditor\bin\*.ipdb;
+          rm Release\mir2-mapeditor\bin\*.ilk;
+        }
+      }
+      
+      
