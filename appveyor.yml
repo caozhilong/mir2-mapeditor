@@ -39,7 +39,7 @@ build_script:
         
         tree
         
-        cd ..\..\Client
+        7z a mir2-mapeditor_1_0_{build}.zip C:\projects\mir2-mapeditor
         
         tree
       }
