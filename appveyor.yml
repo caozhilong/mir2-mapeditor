@@ -24,6 +24,19 @@ build:
   verbosity: minimal
 
 build_script:
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - set PATH=%PATH%;
+  # Build
+  - ps: >-
+      if($env:build_system -eq "cmake") {
+        mkdir build;
+        cd build;
+        cmake -G "$env:generator" ..;
+        cmake --build . --config $env:configuration;
+      }
+      elseif($env:build_system -eq "msbuild") {
+        msbuild /p:Configuration=$env:configuration
+      }
   # Package
   - ps: >-
       if($env:configuration -eq "Release") {
