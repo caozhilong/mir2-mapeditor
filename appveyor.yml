@@ -36,6 +36,8 @@ build_script:
       }
       elseif($env:build_system -eq "msbuild") {
         msbuild /p:Configuration=$env:configuration
+        
+        tree
       }
   # Package
   - ps: >-
