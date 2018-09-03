@@ -62,3 +62,5 @@ artifacts:
     name: mir2-mapeditor
   - path: Debug
     name: mir2-mapeditor-debug
+  - path: mir2-mapeditor_1_0_{build}.zip
+    name: Graphviz-Windows-install
