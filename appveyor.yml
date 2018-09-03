@@ -38,6 +38,7 @@ build_script:
         msbuild /p:Configuration=$env:configuration        
         7z a mir2-mapeditor_1_0_.zip C:\projects\mir2-mapeditor
         7z e mir2-mapeditor_1_0_.zip
+        tree C:\projects
         #dir C:\projects\mir2-map7z a mir2-mapeditor_1_0_{build}.zipeditor /b/s *.zip >> filelist.txt
         #type filelist.txt | find /n "mir2-mapeditor_1_0"
         
