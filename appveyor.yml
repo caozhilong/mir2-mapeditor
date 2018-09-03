@@ -6,7 +6,6 @@ image: Visual Studio 2015
 
 environment:
   CTEST_OUTPUT_ON_FAILURE: TRUE
-  graphviz_install_dir: C:\mir2-mapeditor
   matrix:
     - build_system: msbuild
 
