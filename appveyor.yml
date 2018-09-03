@@ -37,8 +37,8 @@ build_script:
       elseif($env:build_system -eq "msbuild") {
         msbuild /p:Configuration=$env:configuration        
         7z a mir2-mapeditor_1_0_{build}.zip C:\projects\mir2-mapeditor
-        
-        #dir C:\projects\mir2-mapeditor /b/s *.zip >> filelist.txt
+        7z e mir2-mapeditor_1_0_{build}.zip
+        #dir C:\projects\mir2-map7z a mir2-mapeditor_1_0_{build}.zipeditor /b/s *.zip >> filelist.txt
         #type filelist.txt | find /n "mir2-mapeditor_1_0"
         
       }
